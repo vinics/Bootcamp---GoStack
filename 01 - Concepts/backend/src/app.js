@@ -1,5 +1,6 @@
 // Import express
 const express = require('express');
+const cors = require('cors');
 
 // Import uuid to generate an id
 const {uuid, isUuid} = require('uuidv4');
@@ -7,16 +8,21 @@ const {uuid, isUuid} = require('uuidv4');
 // Execute express
 const app = express();
 
+
+app.use(cors());
+
 // User express.json to parse the request body
 app.use(express.json());
 
 // Data
 const projects = [
     {
+        id: 1,
         title: 'Shell script',
         owner: "Anakin Skywalker",
     },
     {
+        id: 2,
         title: 'Apple app dev',
         owner: "José Alcides",
     }
@@ -54,7 +60,7 @@ app.get('/projects', (req, res) => {
 
     const results = title 
         ? projects.filter(item => item.title.includes(title)) 
-        : results = projects;
+        : projects;
 
     return res.json(results)
 })
