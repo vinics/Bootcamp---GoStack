@@ -19,3 +19,14 @@ A [RocketSeat](https://rocketseat.com.br/) bootcamp focused on provide a fast pa
     * Query parameters
     * Request body
     * Middlewares
+
+* Front-end with ReactJS:
+    * ReactJS concept
+    * Babel
+    * Webpack
+    * Components
+    * Properties
+    * State and Immutability
+    * CSS
+    * Images
+    * Request to backend
