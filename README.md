@@ -30,3 +30,10 @@ A [RocketSeat](https://rocketseat.com.br/) bootcamp focused on provide a fast pa
     * CSS
     * Images
     * Request to backend
+
+* React-native:
+    * Code workflow
+    * Android SDK config
+    * Basic project template
+    * Components
+    * Styles
