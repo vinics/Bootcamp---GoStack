@@ -37,3 +37,8 @@ A [RocketSeat](https://rocketseat.com.br/) bootcamp focused on provide a fast pa
     * Basic project template
     * Components
     * Styles
+
+* Typescript:
+    * Typescript/Javascript
+    * Working with types
+    * Object and vectors
