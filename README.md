@@ -42,3 +42,14 @@ A [RocketSeat](https://rocketseat.com.br/) bootcamp focused on provide a fast pa
     * Typescript/Javascript
     * Working with types
     * Object and vectors
+
+* Backend:
+    * Docker
+    * Postgres
+    * TypeORM
+    * Model / Repository / Service
+    * Migrations
+    * Relation between models
+    * User authentication
+    * File upload
+    * Exception handling
