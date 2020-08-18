@@ -53,3 +53,11 @@ A [RocketSeat](https://rocketseat.com.br/) bootcamp focused on provide a fast pa
     * User authentication
     * File upload
     * Exception handling
+
+* React:
+    * Scaffolding a project with create-react-app
+    * Routing
+    * Styled components
+    * Conecting with api's
+    * Error handling
+    * Local storage
