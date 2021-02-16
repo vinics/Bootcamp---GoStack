@@ -26,6 +26,8 @@ import * as Yup from 'yup';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
+import api from '../../services/api';
+
 interface SignUpFormData {
   name: string;
   email: string;
@@ -54,11 +56,14 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         });
 
-        // await api.post('/users', data);
+        await api.post('/users', data);
 
-        // history.push('/');
+        Alert.alert('Cadastro realizado com sucesso', 'Você já pode fazer login na aplicação!');
+
+        navigation.goBack();
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
+          console.log(error);
           const errors = getValidationErrors(error);
           formRef.current?.setErrors(errors);
 
