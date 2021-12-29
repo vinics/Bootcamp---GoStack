@@ -1,4 +1,3 @@
-import { getCustomRepository } from 'typeorm';
 import { startOfHour } from 'date-fns';
 import { injectable, inject } from 'tsyringe';
 
