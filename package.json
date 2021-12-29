@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "tsyringe": "^4.6.0"
+  }
+}

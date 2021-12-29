@@ -8,6 +8,8 @@ import AppError from '@shared/errors/AppError';
 import User from '@modules/users/infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 
+import { injectable, inject } from 'tsyringe';
+
 interface IRequest {
   email: string;
   password: string;
@@ -18,8 +20,12 @@ interface IResponse {
   token: string;
 }
 
+@injectable()
 class AuthenticateUserService {
-  constructor(private usersRepository: IUsersRepository) {}
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
+    ) {}
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {
 
