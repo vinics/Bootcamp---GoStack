@@ -41,7 +41,7 @@ describe('AuthenticateUser', () => {
     const email = 'john.doe@example.com';
     const password = '123456';
 
-    expect(
+    await expect(
       authenticateUser.execute({ email, password })
     ).rejects.toBeInstanceOf(AppError);
   });
@@ -62,7 +62,7 @@ describe('AuthenticateUser', () => {
       password
     });
 
-    expect(
+    await expect(
       authenticateUser.execute({ email, password: 'wrong-password' })
     ).rejects.toBeInstanceOf(AppError);
   });
