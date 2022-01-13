@@ -1,12 +1,11 @@
+/* eslint-disable no-useless-constructor */
 import AppError from '@shared/errors/AppError';
 
-import User from '../infra/typeorm/entities/User';
-
-import IUsersRepository from '../repositories/IUsersRepository';
-import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
-import IUserTokensRepository from '../repositories/IUserTokensRepository';
-
 import { injectable, inject } from 'tsyringe';
+
+import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
+import IUsersRepository from '../repositories/IUsersRepository';
+import IUserTokensRepository from '../repositories/IUserTokensRepository';
 
 interface IRequest {
   email: string;
@@ -22,8 +21,8 @@ class SendForgotPasswordEmailService {
     private mailProvider: IMailProvider,
 
     @inject('UserTokensRepository')
-    private userTokensRepository: IUserTokensRepository
-    ) {}
+    private userTokensRepository: IUserTokensRepository,
+  ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
     const user = await this.usersRepository.findByEmail(email);
@@ -34,7 +33,7 @@ class SendForgotPasswordEmailService {
 
     await this.mailProvider.sendMail(
       email,
-      `Pedido de recuperação de senha recebido: ${token}`
+      `Pedido de recuperação de senha recebido: ${token}`,
     );
   }
 }
