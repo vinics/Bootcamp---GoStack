@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
-import CreateAppointmentService from "./CreateAppointmentService";
+import CreateAppointmentService from './CreateAppointmentService';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let createAppointment: CreateAppointmentService;
@@ -9,13 +9,16 @@ let createAppointment: CreateAppointmentService;
 describe('CreateAppointment', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
-    createAppointment = new CreateAppointmentService(fakeAppointmentsRepository);
+    createAppointment = new CreateAppointmentService(
+      fakeAppointmentsRepository,
+    );
   });
 
   it('should be able to create a new appointment', async () => {
     const appointment = await createAppointment.execute({
       date: new Date(),
-      provider_id: '123123123'
+      user_id: '55555',
+      provider_id: '123123123',
     });
 
     expect(appointment).toHaveProperty('id');
@@ -28,15 +31,17 @@ describe('CreateAppointment', () => {
     // Create first appointment
     await createAppointment.execute({
       date: appointmentDate,
-      provider_id: '123123123'
+      user_id: '55555',
+      provider_id: '123123123',
     });
 
     // Create second appointment
-    await expect(createAppointment.execute({
-      date: appointmentDate,
-      provider_id: '123123123'
-    })).rejects.toBeInstanceOf(AppError);
-
+    await expect(
+      createAppointment.execute({
+        date: appointmentDate,
+        user_id: '55555',
+        provider_id: '123123123',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
-

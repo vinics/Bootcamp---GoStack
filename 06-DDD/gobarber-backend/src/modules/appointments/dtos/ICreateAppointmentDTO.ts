@@ -1,5 +1,7 @@
-interface ICreateAppointmentDTO{
+/* eslint-disable camelcase */
+interface ICreateAppointmentDTO {
   provider_id: string;
+  user_id: string;
   date: Date;
 }
 
